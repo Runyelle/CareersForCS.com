@@ -4,7 +4,7 @@ import './App.css'
 function App() {
 
   return (
-    <p> ya gay!!!</p>
+    <h1> ya gay!!!</h1>
   );
 }
 
