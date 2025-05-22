@@ -1,0 +1,44 @@
+/* Full-screen centered layout */
+.intro-container {
+  background-color: black;
+  color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Large white heading */
+.intro-heading {
+  font-size: 3rem;
+  margin-bottom: 2.5rem;
+  color: white;
+}
+
+/* Horizontal box container */
+.box-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Button-like boxes */  /*may have to use later for the career boxes*/
+.box {
+  background-color: white;
+  color: black;
+  padding: 1.5rem 3rem;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.box:hover {
+  background-color: #e2e2e2;
+  transform: scale(1.05);
+}
