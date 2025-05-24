@@ -1,6 +1,6 @@
 /* Full-screen centered layout */
 .intro-container {
-  background-color: black;
+  background: url('/coolbackgrounds1.png') center/cover no-repeat ;
   color: white;
   height: 100vh;
   display: flex;
@@ -16,6 +16,20 @@
   font-size: 3rem;
   margin-bottom: 2.5rem;
   color: white;
+}
+
+.getstarted-button{
+    padding: .75rem .75rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.getstarted-button{
+  background: white;
+  color: black;
 }
 
 /* Horizontal box container */
@@ -39,6 +53,6 @@
 }
 
 .box:hover {
-  background-color: #e2e2e2;
+  background-color: #e6dcdc;
   transform: scale(1.05);
 }

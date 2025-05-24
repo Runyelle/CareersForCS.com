@@ -11,6 +11,7 @@ export default function intro() {
       <Header />
       <div className="intro-container">
         <h1 className="intro-heading">Welcome to CareersForCS</h1>
+        <button className = "getstarted-button">Get Started</button>
       </div>
     </>
   );
