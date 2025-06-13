@@ -38,6 +38,7 @@ export default function LoginForm() {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
+            <h4> <Link to="/reset"> Forgot Password? </Link> </h4>
           </label>
           <button type="submit">Login</button>
         </form>
