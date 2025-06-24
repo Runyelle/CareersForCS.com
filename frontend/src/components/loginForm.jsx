@@ -11,6 +11,7 @@ export default function LoginForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Logging in with email and password:', {email, password});
+    navigate('/');
     /* must set up with api once backend ready and setup */
   };
 
@@ -19,21 +20,21 @@ export default function LoginForm() {
       <div className="login-left">
         <form onSubmit={handleSubmit} className="login-form">
           <h2>Welcome to Careers4CS.com</h2>
-          <h4>Don't have an account? <Link to="/signup"> SignUp </Link></h4>
+          <h4>Don't have an account? <Link to="/signup"> Sign Up </Link></h4>
           <label>
-            <strong>Email:</strong>
             <input
               type="email"
               value={email}
+              placeholder='Email'
               onChange={(e) => setEmail(e.target.value)}
               required
             />
           </label>
 
           <label>
-            <strong>Password:</strong>
             <input
               type="password"
+              placeholder='Password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required

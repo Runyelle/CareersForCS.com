@@ -1,12 +1,45 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
+import Verify from './signupVerify';
 import '../components/signupForm.css';
 
 export default function SignupForm(){
+    const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    const [submitted, setSubmitted] = useState(false);
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      console.log('Sending confirmation to email', {email});
+      setSubmitted(true);
+    };
+
+    if(submitted){
+        return(
+          <Verify email = {email}/>
+        );
+    }
     return(
-        <div>
-          <h1> Sign up goes here </h1>
+        <div className = "signup-page">
+          <div className = "signup-left">
+            <form onSubmit={handleSubmit} className = "signup-form">
+              <h2>Create a free account</h2>
+              <h4>Already have an account?<Link to="/login"> Sign In </Link></h4>
+              <label>
+                <input 
+                  type="email"
+                  value={email}
+                  placeholder='Email Address'
+                  onChange = {(e) => setEmail(e.target.value)}
+                  required
+                />
+              </label>
+              <button type="submit">Continue</button>
+            </form>
+          </div>
+          <div className = "signup-right">
+          </div>
         </div>
     );
 }

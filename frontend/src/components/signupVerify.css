@@ -1,0 +1,32 @@
+.verify-page {
+    display: flex;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .verify-left {
+    width: 40%;
+    background-color: #1a1a1a;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .verify-right {
+    width: 60%;
+    background: white
+  }
+
+  .verify-form {
+    background-color: #000000;
+    padding: 2rem;
+    border-radius: 20px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+    font-family: 'Inter', sans-serif;
+  }

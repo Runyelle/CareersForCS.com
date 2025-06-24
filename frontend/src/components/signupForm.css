@@ -1,7 +1,7 @@
 .signup-page {
     display: flex;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
   }
   
   .signup-left {
@@ -15,11 +15,11 @@
   
   .signup-right {
     width: 60%;
-    background: url('/200w.gif') center/cover no-repeat;
+    background: white
   }
   
   .signup-form {
-    background-color: #1f1f1f;
+    background-color: #15171a;
     padding: 2rem;
     border-radius: 20px;
     width: 500px;
@@ -27,6 +27,7 @@
     flex-direction: column;
     gap: .5rem;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+    font-family: 'Inter', sans-serif;
   }
   
   .signup-form h2 {
@@ -35,11 +36,12 @@
     font-size: 1.5rem;
   }
 
-  .login-link {
+  .signup-link {
     margin-top: 0.25rem;  
     margin-bottom: 1rem;  
     font-size: 1rem;
     text-align: center;
+    color: black;
   }
 
   .signup-form h3{
