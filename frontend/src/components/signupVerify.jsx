@@ -25,7 +25,7 @@ export default function Verify({email}){
             <div className = "verify-left">
                 <form onSubmit={handleSubmit} className = "verify-form">
                     <h2>Enter your verification code</h2>
-                    <p>We sent an email to {email} <br />
+                    <p>We sent an email to <strong>{email}</strong> <br />
                     with a code to verify your account</p>
                     <label>
                         <input 

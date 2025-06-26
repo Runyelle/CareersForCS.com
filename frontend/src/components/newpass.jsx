@@ -39,7 +39,6 @@ export default function New(){
                         className="newpass-input"
                         required
                     />
-                    
                     <input 
                         type = "password"
                         inputmode = "numeric"

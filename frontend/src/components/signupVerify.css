@@ -6,12 +6,16 @@
   
   .verify-left {
     width: 40%;
-    background-color: #1a1a1a;
-    color: white;
+    background-color: white;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+  }
+
+  .verify-left h2{
+    margin-bottom: .5px;
   }
   
   .verify-right {
@@ -20,13 +24,34 @@
   }
 
   .verify-form {
-    background-color: #000000;
-    padding: 2rem;
-    border-radius: 20px;
-    width: 500px;
     display: flex;
     flex-direction: column;
-    gap: .5rem;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width:400px;
     font-family: 'Inter', sans-serif;
+    align-items: stretch;
   }
+
+  .verify-form input{
+    color: black;
+    padding: .8rem;
+    border: none;
+    background-color: rgb(227, 225, 225);
+    font-size: 15px;
+    border-radius: 6px;
+    margin-top: 0.5px;
+  }
+
+  .verify-form button{
+    margin-top: 15px;
+    background-color: #1da1f2;
+  }
+
+  .verify-form a{
+    color: #4a90e2;
+  }
+
+  .verify-form a{
+    text-decoration: underline;
+  }
+

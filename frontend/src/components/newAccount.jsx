@@ -19,11 +19,10 @@ export default function NewAccount(){
         <div className = "NewAccount-page">
             <div className = "NewAccount-left">
                 <form onSubmit = {handleSubmit} className = "NewAccount-form">
-                    <h1>Getting Started</h1>
+                    <h1>Getting started</h1>
                     <p>Already have an account? <Link to= '/login'>Sign in</Link></p>
-                    <h2>Create a new account</h2>
                     <label>
-                        <strong>Username</strong>
+                        <strong>Username   </strong>
                         <input 
                             type="text"
                             value={username}
@@ -34,7 +33,7 @@ export default function NewAccount(){
                     </label>
 
                     <label>
-                        <strong>Password</strong>
+                        <strong>Password   </strong>
                         <input 
                             type="password"
                             value={password}

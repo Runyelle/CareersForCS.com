@@ -36,8 +36,7 @@ export default function Confirm({ email }){
         <div className = "confirm-container">
             <h2>CareersforCS.com</h2>
             <h2>Please check your email</h2>
-            <p>Enter the 5-digit code we sent to <strong>{email}</strong></p>
-
+            <p>Enter the 5-digit code we sent to <strong>{email}</strong> <br /> to verify your account</p>
             <form onSubmit = {handleSubmit}>
                 <input 
                     type ="text"

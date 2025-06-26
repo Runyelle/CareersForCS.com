@@ -1,6 +1,6 @@
 .reset-container {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -34,7 +34,7 @@
   }
   
   .reset-input {
-    background-color: #1f1f1f;
+    background-color: rgb(33, 33, 33);
     padding: 2rem;
     border-radius: 20px;
     width: 100%;
@@ -52,7 +52,7 @@
   }
   
   .reset-input button {
-    background-color: grey;
+    background-color: #1da1f2;
     color: white;
     padding: 1rem;
     border: none;

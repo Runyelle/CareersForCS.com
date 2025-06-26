@@ -10,42 +10,42 @@ export default function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Logging in with email and password:', {email, password});
+    console.log('Logging in with email and password:', { email, password });
     navigate('/');
-    /* must set up with api once backend ready and setup */
   };
 
   return (
     <div className="login-page">
       <div className="login-left">
         <form onSubmit={handleSubmit} className="login-form">
-          <h2>Welcome to Careers4CS.com</h2>
-          <h4>Don't have an account? <Link to="/signup"> Sign Up </Link></h4>
-          <label>
-            <input
-              type="email"
-              value={email}
-              placeholder='Email'
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </label>
+          <h2 className="login-title">Welcome to Careers4CS.com</h2>
+          <p className="login-subtext">
+            Don't have an account? <Link to="/signup">Sign Up</Link>
+          </p>
+          <input
+            type="email"
+            value={email}
+            placeholder="Email address"
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
 
-          <label>
-            <input
-              type="password"
-              placeholder='Password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <h4> <Link to="/reset"> Forgot Password? </Link> </h4>
-          </label>
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
+          <div className="forgot-password">
+            <Link to="/reset">Forgot Password?</Link>
+          </div>
+
           <button type="submit">Login</button>
         </form>
       </div>
-      <div className="login-right">
-      </div>
+      <div className="login-right" />
     </div>
   );
 }

@@ -6,27 +6,68 @@
   
   .NewAccount-left {
     width: 40%;
-    background-color: #1a1a1a;
-    color: white;
+    background-color: white;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
   }
-  
+
+  .NewAccount-left h1{
+    font-size: 40px;
+    margin-bottom: .75px;
+  }
+
+  .NewAccount-left p{
+    font-size: 1.08rem;
+    margin-bottom: .75px;
+  }
+
+  .NewAccount-form input {
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background-color: rgb(227, 225, 225);
+    color: rgb(66, 66, 66);
+    font-size: 1rem;
+  }
   .NewAccount-right {
     width: 60%;
-    background: white
+    background: grey
+  }
+
+  .NewAccount-form label{
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
   }
 
   .NewAccount-form {
-    background-color: #000000;
-    padding: 2rem;
-    border-radius: 20px;
-    width: 500px;
     display: flex;
     flex-direction: column;
-    gap: .5rem;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+    align-items: stretch;
+    width: 100%;
+    max-width: 400px;
+    padding: 1rem;
     font-family: 'Inter', sans-serif;
+    margin: 0 auto;
   }
+
+  .NewAccount-form button {
+    background-color: #1da1f2;
+  }
+  
+  .NewAccount-form button:hover {
+    background-color: #0d8ddb;
+  }
+
+  .NewAccount-left a{
+    color: #1da1f2;
+  }
+
+  .NewAccount-left a:hover{
+    text-decoration: underline;
+  }
+

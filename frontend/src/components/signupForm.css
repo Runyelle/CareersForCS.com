@@ -6,8 +6,8 @@
   
   .signup-left {
     width: 40%;
-    background-color: #1a1a1a;
-    color: white;
+    background-color: white;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,19 +15,16 @@
   
   .signup-right {
     width: 60%;
-    background: white
+    background: gray;
   }
   
   .signup-form {
-    background-color: #15171a;
-    padding: 2rem;
-    border-radius: 20px;
-    width: 500px;
     display: flex;
     flex-direction: column;
-    gap: .5rem;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width:400px;
     font-family: 'Inter', sans-serif;
+    align-items: stretch;
   }
   
   .signup-form h2 {
@@ -35,6 +32,19 @@
     margin-bottom: .1rem;
     font-size: 1.5rem;
   }
+
+  .signup-form a{
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: 500;
+    text-align: center;
+    margin-top: .25rem;
+  }
+
+  .signup-form a:hover{
+    text-decoration: underline;
+  }
+
 
   .signup-link {
     margin-top: 0.25rem;  
@@ -49,9 +59,11 @@
     margin-bottom: .1rem;
   }
 
-  .signup-form h4{
+  .signup-form p{
     text-align: center;
-    margin-bottom: .1rem;
+    font-size: 15px;
+    margin-top: .25rem;
+    margin-bottom: 1rem;
   }
   
   .signup-form label {
@@ -61,10 +73,17 @@
   }
   
   .signup-form input {
-    padding: 0.5rem;
+    color: black;
+    padding: .8rem;
     border: none;
-    border-radius: 5px;
-    margin-top: 0.3rem;
+    background-color: rgb(227, 225, 225);
+    font-size: 15px;
+    border-radius: 6px;
+
+  }
+
+  .signup-form input::placeholder{
+    color: grey;
   }
   
   .signup-form button {

@@ -25,7 +25,7 @@ export default function SignupForm(){
           <div className = "signup-left">
             <form onSubmit={handleSubmit} className = "signup-form">
               <h2>Create a free account</h2>
-              <h4>Already have an account?<Link to="/login"> Sign In </Link></h4>
+              <p>Already have an account?<Link to="/login"> Sign In </Link></p>
               <label>
                 <input 
                   type="email"
