@@ -34,7 +34,7 @@
   }
   
   .reset-input {
-    background-color: rgb(33, 33, 33);
+    background-color: rgb(245, 245, 245);
     padding: 2rem;
     border-radius: 20px;
     width: 100%;
@@ -45,6 +45,8 @@
   }
   
   .reset-input input {
+    background-color: rgb(213, 212, 212);
+    color: black;
     padding: 1rem;
     border: none;
     border-radius: 10px;

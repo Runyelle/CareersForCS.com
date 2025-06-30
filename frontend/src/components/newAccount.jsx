@@ -7,11 +7,14 @@ export default function NewAccount(){
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [username, setUsername] = useState('')
+    const [username, setUsername] = useState('');
+    const [linkedin, setLinkedin] = useState('');
+    const [github, setGithub] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Setting up account with ', {email}, ' and given password.');
+        console.log('Setting up account with ', {linkedin}, ' and ', {github}, '. ')
         navigate('/');
     };
 
@@ -22,7 +25,7 @@ export default function NewAccount(){
                     <h1>Getting started</h1>
                     <p>Already have an account? <Link to= '/login'>Sign in</Link></p>
                     <label>
-                        <strong>Username   </strong>
+                        <p><strong>Username</strong></p>
                         <input 
                             type="text"
                             value={username}
@@ -33,13 +36,33 @@ export default function NewAccount(){
                     </label>
 
                     <label>
-                        <strong>Password   </strong>
+                        <p><strong>Password</strong></p>
                         <input 
                             type="password"
                             value={password}
                             placeholder='*********'
                             onChange={(e) => setPassword(e.target.value)}
                             required
+                        />
+                    </label>
+
+                    <label>
+                        <p><strong>Linkedin</strong></p>
+                        <input 
+                            type="url"
+                            value={linkedin}
+                            placeholder='https://linkedin.com/in/username'
+                            onChange={(e) => setLinkedin(e.target.value)}
+                        />
+                    </label>
+
+                    <label>
+                        <p><strong>GitHub</strong></p>
+                        <input 
+                            type= "url"
+                            value={github}
+                            placeholder="https://github.com/username"
+                            onChange={(e) => setGithub(e.target.value)}
                         />
                     </label>
                     <button type="submit">Create Account</button>
