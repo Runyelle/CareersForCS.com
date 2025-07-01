@@ -15,7 +15,7 @@
   
   .signup-right {
     width: 60%;
-    background: gray;
+    background: url('/coolbackgrounds1.png') center/cover no-repeat;
   }
   
   .signup-form {

@@ -44,6 +44,9 @@ export default function Verify({email}){
                     <p>< Link to="/login"> Back to sign in</Link></p>
                 </form>
             </div>
+            
+            <div className = "verify-right">
+            </div>
         </div>
     );
 }

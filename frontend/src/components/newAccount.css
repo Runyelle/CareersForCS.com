@@ -46,7 +46,7 @@
   }
   .NewAccount-right {
     width: 60%;
-    background: grey
+    background: url('/coolbackgrounds1.png') center/cover no-repeat;
   }
 
   .NewAccount-form label{

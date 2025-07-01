@@ -20,7 +20,7 @@
   
   .verify-right {
     width: 60%;
-    background: white
+    background: url('/coolbackgrounds1.png') center/cover no-repeat;
   }
 
   .verify-form {
