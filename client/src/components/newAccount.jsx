@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
-import '../components/newAccount.css';
+import './newAccount.css';
 
 export default function NewAccount(){
     const navigate = useNavigate();

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../components/confirm.css';
-import New from '../components/newpass'
+import './confirm.css';
+import New from './newpass'
 
 export default function Confirm({ email }){
     const navigate = useNavigate();

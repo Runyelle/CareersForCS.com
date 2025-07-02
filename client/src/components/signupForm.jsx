@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
 import Verify from './signupVerify';
-import '../components/signupForm.css';
+import './signupForm.css';
 
 export default function SignupForm(){
     const navigate = useNavigate();

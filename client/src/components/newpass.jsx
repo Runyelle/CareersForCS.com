@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../components/newpass.css';
+import './newpass.css';
 
 export default function New(){
     const navigate = useNavigate();

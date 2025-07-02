@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
-import NewAccount from '../components/newAccount';
-import '../components/signupVerify.css';
+import NewAccount from './newAccount';
+import './signupVerify.css';
 
 export default function Verify({email}){
     const navigate = useNavigate();
