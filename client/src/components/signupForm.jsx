@@ -4,6 +4,8 @@ import { useState } from 'react';
 import Verify from './signupVerify';
 import './signupForm.css';
 
+
+
 export default function SignupForm(){
     const navigate = useNavigate();
     const [email, setEmail] = useState('');

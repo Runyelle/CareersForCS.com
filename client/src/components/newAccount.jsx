@@ -2,21 +2,43 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
 import './newAccount.css';
+import axios from 'axios'
+import './signupVerify.jsx';
 
-export default function NewAccount(){
+export default function NewAccount({email}){
+    
     const navigate = useNavigate();
-    const [email, setEmail] = useState('');
+    //const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
     const [linkedin, setLinkedin] = useState('');
     const [github, setGithub] = useState('');
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
-        console.log('Setting up account with ', {email}, ' and given password.');
-        console.log('Setting up account with ', {linkedin}, ' and ', {github}, '. ')
+        try {
+            const response = await fetch("/api/v1/signup", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            
+            body: JSON.stringify({ email, password, username, linkedin, github }),
+        });
+
+        const data = await response.json();
+        console.log("Server response:", data);
+
+        if (data.status === "SUCCESS") {
+        
         navigate('/');
-    };
+        } else {
+            alert(data.message || "Signup failed");
+        }
+    } catch (err) {
+        console.error("Signup error:", err);
+        alert("Something went wrong during signup.");
+    }
+};
 
     return(
         <div className = "NewAccount-page">
@@ -68,6 +90,7 @@ export default function NewAccount(){
                     <button type="submit">Create Account</button>
                 </form>
             </div>
+  
             <div className = "NewAccount-right">
             </div>
         </div>

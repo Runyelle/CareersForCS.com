@@ -8,7 +8,6 @@ export default function Verify({email}){
     const navigate = useNavigate();
     const [code, setCode] = useState('');
     const [submitted, setSubmitted] = useState(false);
-
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Sending verification code to user email', {email});
@@ -17,7 +16,7 @@ export default function Verify({email}){
 
     if(submitted){
         return(
-            <NewAccount />
+            <NewAccount email = {email}/>
         );
     }
     return(
