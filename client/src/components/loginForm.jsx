@@ -8,11 +8,32 @@ export default function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Logging in with email and password:', { email, password });
-    navigate('/');
-  };
+  const handleSubmit = async(e) => {
+        e.preventDefault();
+        try {
+            const response = await fetch("/api/v1/signin", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            
+            body: JSON.stringify({ email, password}),
+        });
+
+        const data = await response.json();
+        console.log("Server response:", data);
+
+        if (data.status === "SUCCESS") {
+        
+        navigate('/');
+        } else {
+            alert(data.message || "Signin failed");
+        }
+    } catch (err) {
+        console.error("Signip error:", err);
+        alert("Something went wrong during signip.");
+    }
+    };
 
   return (
     <div className="login-page">

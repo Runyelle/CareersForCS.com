@@ -38,7 +38,7 @@ export default function NewAccount({email}){
         console.error("Signup error:", err);
         alert("Something went wrong during signup.");
     }
-};
+    };
 
     return(
         <div className = "NewAccount-page">
