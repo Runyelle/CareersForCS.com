@@ -31,7 +31,7 @@ export default function LoginForm() {
         }
     } catch (err) {
         console.error("Signip error:", err);
-        alert("Something went wrong during signip.");
+        alert("Something went wrong during signup.");
     }
     };
 
