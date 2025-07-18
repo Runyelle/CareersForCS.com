@@ -24,4 +24,4 @@ const server = app.listen(port, () => {
     console.log('Hello server ' + port)
 })
 
-console.log('Helloooooo')
+console.log('Hello')
