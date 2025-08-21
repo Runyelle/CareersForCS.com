@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
+import {signupVerify} from '../api/authApi'
 import NewAccount from './newAccount';
 import './signupVerify.css';
 
@@ -8,10 +9,17 @@ export default function Verify({email}){
     const navigate = useNavigate();
     const [code, setCode] = useState('');
     const [submitted, setSubmitted] = useState(false);
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async(e) => {
         e.preventDefault();
         console.log('Sending verification code to user email', {email});
-        setSubmitted(true);
+        try{
+            await signupVerify(email, code);
+            console.log("Verification code accepted");
+            setSubmitted(true);
+        }catch(err){
+            console.error(err.response?.data || err.message);
+        }
     };
 
     if(submitted){

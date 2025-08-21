@@ -1,9 +1,54 @@
 const express = require('express')
 const router = express.Router();
-
-
+const UserOTPVerification = require('../models/UserOTPVerification');
+const sendEmail = require('../utils/sendEmail');
 const User = require('./../models/user');
 const bcrypt = require('bcrypt');
+const generateOTP = () => Math.floor(10000 + Math.random() * 90000).toString(); //generates random 5 digit code
+
+router.post('/signup', async (req, res) => {
+    const {email, password, username, linkedin, github} = req.body;
+    const existing = await User.findOne({email});
+    if(existing){ //check if user already exists
+        return res.status(400).json({message: 'Given email already has an existing account'})
+    }
+
+    const otp = generateOTP();
+    const expiresAt = new Date(Date.now() + 5 * 60 * 1000); // expires in 5 minutes
+    await UserOTPVerification.create({email, otp, expiresAt});
+    await sendEmail(email,otp);
+    res.status(200).json({message: 'OTP sent to email'});
+
+});
+
+router.post('/signup-otp', async(req, res) => {
+    const {email, otp, password, username, linkedin, github} = req.body;
+    const record= await UserOTPVerification.findOne({email});
+    if(!record){
+        return res.status(400).json({message: "Verification code not found"});
+    }
+    if(record.expiresAt < Date.now()){
+        return res.status(400).json({message: "The verification code has expired"});
+    }
+    if(record.otp !== otp){
+        return res.status(400).json({message: "Incorrect verification code"});
+    }
+
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+    const newUser = new User({email, password, username, linkedin, github});
+    await newUser.save();
+
+    await UserOTPVerification.deleteOne({email});
+    res.status(200).json({message: "Signup code removed from DB & Signup successful"});
+    //Need to finish the verify for password change
+});
+
+router.post('/forgot-password', async (req, res) => {
+
+});
+
 
 router.post('/api/v1/signup', (req, res) => {
     let{email, password, username, linkedin, github} = req.body;
@@ -14,6 +59,7 @@ router.post('/api/v1/signup', (req, res) => {
     linkedin = (linkedin || "").trim();
     github = (github || "").trim();
     console.log("After: ", email, password, username, linkedin, github)
+    
     
     if (username == "" || email == "" || password == "" || linkedin == "" || github == ""){
         res.json({
@@ -161,6 +207,6 @@ router.post('/api/v1/signin', (req, res) => {
             })
         })
     }
-})
+});
 
 module.exports = router

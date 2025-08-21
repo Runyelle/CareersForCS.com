@@ -1,18 +1,26 @@
 import React from 'react';
 import { useState } from 'react';
+import {setPassword} from '../api/passwordApi';
 import { useNavigate } from 'react-router-dom';
 import './newpass.css';
 
-export default function New(){
+export default function New({email}){
     const navigate = useNavigate();
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const handlesubmit = (e) => {
+
+    const handlesubmit = async(e) => {
         e.preventDefault();
 
         if(newPassword.length >= 8 && newPassword === confirmPassword){
-            alert('Password accepted');
-            navigate('/login');
+            try{
+                await setPassword(email, newPassword);
+                console.log("New password has been set");
+                navigate('/login');
+            }catch(err){
+                console.error(err.response?.data || err.message);
+            }
+            
         }
         else if(newPassword.length < 8){
             alert('Password needs to be a minimum of 8 characters long')

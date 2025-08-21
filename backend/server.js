@@ -8,15 +8,14 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-
-
 const corsOptions = {
-    origin: '*',
+    origin: 'http://localhost:5175/', // or whatever port your friend's frontend is running on
     credentials: true,
-    optionSuccessStatus: 200
-
-}
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // optional but recommended
+  };
+  
 app.use(cors(corsOptions));
+
 app.use('/', router)
 
 const port = 7000;

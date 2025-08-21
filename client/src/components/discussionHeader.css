@@ -7,7 +7,6 @@
     padding: 1rem 2rem;
     background-color: whitesmoke;
     display: flex;
-    justify-content: flex-end; /* pushes content to the right */
     align-items: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     position: sticky;
@@ -22,6 +21,7 @@
   
   .login-btn,
   .signup-btn {
+    justify-content: flex-end; /* pushes content to the right */
     padding: .5rem 1rem;
     border: none;
     border-radius: 8px;
@@ -42,4 +42,20 @@
   
   .signup-btn:hover {
     background-color: #0d8ddb;
+  }
+
+  .search-bar{
+    /*outline:*/
+    display: center;
+    justify-content: flex-start;
+    width: 60rem;
+    align-items: center;
+    border-radius: 8px;
+    padding: .5rem;
+    border: none;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+    background-color: white;
+    color: rgb(48, 48, 48);
+    outline: 1px solid rgb(48, 48, 48);
   }

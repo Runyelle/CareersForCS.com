@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { verifyOTP } from '../api/passwordApi';
 import './confirm.css';
 import New from './newpass'
 
@@ -9,24 +10,25 @@ export default function Confirm({ email }){
     const [code, setCode] = useState('');
     const [submitted, setSubmitted] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
-        console.log('User entered code', {code});
-        /* must set up with api and backend stuff*/
 
-        if(code.length === 5){
-            alert('Code accepted');
-            setSubmitted(true);
-        }
-        else{
+        if(code.length !== 5){
             alert('Please enter a valid 5-digit code');
+        }
+        try{
+            await verifyOTP(email, code);
+            console.log('User entered code', {code});
+            setSubmitted(true);
+        }catch(err){
+            console.error(err.response?.data || err.message);
         }
     };
 
     if(submitted){
         return(
             <div className = "confirm-container">
-                <New />
+                <New email={email}/>
             </div>
         )
     }

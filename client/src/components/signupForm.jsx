@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
+import {signupEmail} from "../api/authApi"
 import Verify from './signupVerify';
 import './signupForm.css';
 
@@ -11,10 +12,15 @@ export default function SignupForm(){
     const [email, setEmail] = useState('');
     const [submitted, setSubmitted] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
       e.preventDefault();
-      console.log('Sending confirmation to email', {email});
-      setSubmitted(true);
+      try{
+        await signupEmail(email);
+        console.log("Email sent to ", {email});
+        setSubmitted(true);
+      }catch(err){
+        console.error(err.response?.data || err.message);
+      }
     };
 
     if(submitted){

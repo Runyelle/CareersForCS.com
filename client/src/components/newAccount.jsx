@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
+import { signupComplete } from '../api/authApi.js';
 import './newAccount.css';
 import axios from 'axios'
 import './signupVerify.jsx';
@@ -8,13 +9,38 @@ import './signupVerify.jsx';
 export default function NewAccount({email}){
     
     const navigate = useNavigate();
-    //const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
     const [linkedin, setLinkedin] = useState('');
     const [github, setGithub] = useState('');
+
     const handleSubmit = async(e) => {
         e.preventDefault();
+        try {
+            const payload = {
+                email,
+                username,
+                password,
+            };
+    
+            if (github.trim() !== "") {
+                payload.github = github;
+            }
+
+            if (linkedin.trim() !== "") {
+                payload.linkedin = linkedin;
+            }
+
+            await signupComplete(payload);
+            console.log('Creating account with username', {username});
+            navigate('/discussions');
+        }catch(err){
+            console.error(err.response?.data || err.message);
+        }
+    }
+    /*const handleSubmit = async(e) => {
+        e.preventDefault();
+        console.log("test");
         try {
             const response = await fetch("/api/v1/signup", {
             method: "POST",
@@ -38,7 +64,7 @@ export default function NewAccount({email}){
         console.error("Signup error:", err);
         alert("Something went wrong during signup.");
     }
-    };
+    };*/
 
     return(
         <div className = "NewAccount-page">

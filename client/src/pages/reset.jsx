@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { forgotPassword } from '../api/passwordApi';
 import Confirm from '../components/confirm';
 import '../styles/reset.css';
 
@@ -8,10 +9,16 @@ export default function Reset(){
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [submitted, setSubmitted] = useState(false);
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async(e) => {
         e.preventDefault();
-        console.log('Sending password reset instructions with provided email:', {email});
-        setSubmitted(true);
+        try{
+            await forgotPassword(email);
+            console.log('Sending password reset instructions with provided email:', {email});
+            setSubmitted(true);
+        }catch(err){
+            console.error(err.response?.data || err.message);
+        }
     };
 
     if(submitted){
