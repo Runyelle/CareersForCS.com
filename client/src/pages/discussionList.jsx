@@ -39,7 +39,7 @@ export default function intro() {
             <h3>Filter</h3>
 
             <div className = "filter-section">
-              <p className = "filter-title">Categories</p>
+            <p className = "filter-title">Categories</p>
               <div className="filter-options">
                 <label><input type="checkbox"/>Software Engineering</label>
                 <label><input type="checkbox"/>AI / Machine Learning</label>
