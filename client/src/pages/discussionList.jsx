@@ -51,7 +51,9 @@ export default function intro() {
             </div>
         </div>
 
-        <div className = "discussions-right"></div>
+        <div className = "discussions-right">
+        <label><input type="button" className="box"/></label>
+        </div>
       </div>
     </>
   );
